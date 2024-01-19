@@ -20,7 +20,7 @@ const Header = () => {
           </div>
 
           <div
-            className={`overlay ${showNav ? "show" : ""}`}
+            className={`overlay ${showNav ? "show" : " "}`}
             onClick={() => {
               setShowNav(false);
             }}></div>
