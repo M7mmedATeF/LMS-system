@@ -1,7 +1,59 @@
-.main_container {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+main {
+    background-color: var(--bg-L1-color);
+    color: var(--txt-L1-color);
     width: 100vw;
     height: 100vh;
     transition: 0.3s all ease-in-out;
+}
+
+.content {
+    background-color: var(--bg-L2-color);
+    --br-radius: 30px;
+    border-radius: var(--br-radius) var(--br-radius) 0 0;
+    padding: 20px 5px 5px;
+    overflow: hidden;
+    height: 90vh;
+
+    .inner {
+        padding: 20px;
+        padding-inline: var(--container-pad);
+        height: 100%;
+        overflow-y: auto;
+        color: var(--txt-L2-color);
+
+        &>section {
+            height: 200vh;
+            animation: drop 2s ease-in-out;
+        }
+    }
+}
+
+
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+        pointer-events: none;
+        position: relative;
+        top: -100vh;
+    }
+
+    80% {
+        top: 10vh;
+    }
+
+    90% {
+        top: -5vh;
+    }
+
+    95% {
+        top: 2vh;
+    }
+
+    100% {
+        opacity: 1;
+        position: relative;
+        pointer-events: none;
+        top: 0vh;
+    }
 }

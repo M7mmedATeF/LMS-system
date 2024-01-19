@@ -1,21 +1,78 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+
+  /* -- Theme Colors --*/
+  --theme-color: #ff673b;
+  --secondary-color: #161623;
+
+  /* -- Site Settings --*/
+  --txt-L1-color: #fff;
+  --txt-L2-color: #000;
+  --txt-L3-color: #ccc;
+  --bg-L1-color: #161623;
+  --bg-L2-color: #fff;
+  --bg-L3-color: #333;
+  --container-pad: 8%;
+  --scrollbar-size: 5px;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: currentColor;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+  transition: 0.3s all ease-in-out;
+}
+
+:hover::-webkit-scrollbar {
+  background-color: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff38;
+  border-radius: 20px;
+  transition: 0.3s all ease-in-out;
+}
+
+:hover::-webkit-scrollbar-thumb {
+  background-color: #000000ab;
 }
 
 body {
+  width: 100vw;
+  overflow-x: hidden;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  --text-color: #000;
-  --bg-color: #fff;
 }
 
 main.dark {
-  --text-color: #fff;
-  --bg-color: #000;
+  /* -- Site Settings --*/
+  --txt-L1-color: #000;
+  --txt-L2-color: #222;
+  --txt-L3-color: #333;
+  --bg-L1-color: #fff;
+  --bg-L2-color: #efefef;
+  --bg-L3-color: #ccc;
 }
