@@ -12,12 +12,11 @@ import {
 } from "react-router-dom";
 import Home from "views/pages/Home/Home";
 
-var innerRoutes = <Route></Route>;
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" caseSensitive={false} element={<MainLayout />}>
       <Route exact path="" caseSensitive={false} element={<Home />}></Route>
+
       <Route
         path="*"
         element={

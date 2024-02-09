@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-
+:root {
   /* -- Theme Colors --*/
   --theme-color: #ff673b;
   --secondary-color: #161623;
@@ -16,6 +12,12 @@
   --bg-L3-color: #333;
   --container-pad: 8%;
   --scrollbar-size: 5px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 a {
