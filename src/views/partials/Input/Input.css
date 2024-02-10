@@ -1,0 +1,71 @@
+.input {
+    cursor: text;
+    background-color: var(--secondary-color);
+    color: var(--theme-color);
+    width: 100%;
+    position: relative;
+    display: flex;
+    font-size: 1rem;
+    opacity: 0.95;
+    padding-top: 16px;
+    margin-block: 5px;
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        padding: 10px 25px;
+        font-size: inherit;
+        color: inherit;
+
+        &::placeholder {
+            opacity: 0;
+        }
+
+        &:focus ~ label,
+        :not(&:placeholder-shown) ~ label {
+            transform: translateY(calc(-50% - 12px));
+            font-size: smaller;
+        }
+    }
+
+    label {
+        pointer-events: none;
+        width: calc(100% - 25px);
+        background-color: var(--secondary-color);
+        position: absolute;
+        inset-inline-start: 25px;
+        top: 50%;
+        transform: translateY(-60%);
+        font-weight: 700;
+        text-transform: capitalize;
+        transition: 0.3s all ease-in-out;
+    }
+
+    textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        padding: 15px 25px;
+        font-size: inherit;
+        color: inherit;
+        resize: none;
+
+        &::placeholder {
+            opacity: 0;
+        }
+
+        &:focus ~ label,
+        &:not(&:placeholder-shown) ~ label {
+            transform: translateY(calc(-80% - 12px));
+            font-size: smaller;
+        }
+    }
+
+    textarea ~ label {
+        font-size: inherit;
+        top: 15%;
+    }
+}
