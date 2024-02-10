@@ -63,6 +63,10 @@ img {
     background-color: #000000ab;
 }
 
+main.dark :hover::-webkit-scrollbar-thumb {
+    background-color: #ffffffab;
+}
+
 body {
     width: 100vw;
     overflow-x: hidden;
@@ -73,11 +77,13 @@ body {
 }
 
 main.dark {
+    --secondary-color: #1b1b2b;
+
     /* -- Site Settings --*/
-    --txt-L1-color: #000;
-    --txt-L2-color: #222;
+    --txt-L1-color: #fff;
+    --txt-L2-color: #fff;
     --txt-L3-color: #333;
-    --bg-L1-color: #fff;
-    --bg-L2-color: #efefef;
-    --bg-L3-color: #ccc;
+    --bg-L1-color: #1b1b2b;
+    --bg-L2-color: #161623;
+    --bg-L3-color: #333;
 }

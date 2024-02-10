@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    min-height: 5svh;
+    border-radius: var(--br-radius) var(--br-radius) 0 0;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+
+    p a {
+        color: var(--theme-color);
+        transition: 0.3s color ease-in-out;
+        font-weight: 600;
+
+        &:hover {
+            color: var(--txt-L1-color);
+        }
+    }
+}

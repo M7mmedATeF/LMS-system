@@ -1,13 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const current_theme = () => {
+    let theme = localStorage.getItem("theme");
+    console.log(theme);
+    console.log(theme === "true");
+    return theme === "true";
+};
+
 const Theme = createSlice({
-  name: "theme",
-  initialState: false,
-  reducers: {
-    toggleTheme: (state) => {
-      return !state;
+    name: "theme",
+    initialState: current_theme(),
+    reducers: {
+        toggleTheme: (state) => {
+            state = !state;
+            localStorage.setItem("theme", "" + state);
+            return state;
+        },
     },
-  },
 });
 
 // Action creators are generated for each case reducer function

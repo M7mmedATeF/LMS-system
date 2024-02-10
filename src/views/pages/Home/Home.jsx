@@ -106,10 +106,30 @@ const Home = () => {
                         quote="ask for what ever you need"
                     />
                     <form>
-                        <Input label={"name"} type={"text"} idx={1} />
-                        <Input label={"email"} type={"email"} idx={2} />
-                        <Input label={"phone"} type={"tel"} idx={3} />
-                        <Input label={"message"} type={"text_area"} idx={4} />
+                        <Input
+                            label={"name"}
+                            name={"name"}
+                            type={"text"}
+                            idx={1}
+                        />
+                        <Input
+                            label={"email"}
+                            name={"email"}
+                            type={"email"}
+                            idx={2}
+                        />
+                        <Input
+                            label={"phone"}
+                            name={"phone"}
+                            type={"tel"}
+                            idx={3}
+                        />
+                        <Input
+                            label={"message"}
+                            name={"message  "}
+                            type={"text_area"}
+                            idx={4}
+                        />
 
                         <div className="submition">
                             <button className="send" type="submit">

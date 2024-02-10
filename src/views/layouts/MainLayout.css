@@ -7,22 +7,29 @@ main {
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--bg-L2-color);
     --br-radius: 30px;
     border-radius: var(--br-radius) var(--br-radius) 0 0;
-    padding: 20px 5px 5px;
     overflow: hidden;
     height: 90svh;
 
+    & > * {
+        width: 100%;
+    }
     .inner {
-        padding: 20px;
         padding-inline: var(--container-pad);
+        padding-bottom: 3svh;
         height: 100%;
         overflow-y: auto;
         color: var(--txt-L2-color);
+        background-color: var(--bg-L2-color);
 
         & > section {
-            animation: drop 2s ease-in-out;
+            animation: drop 1s ease-in-out;
         }
     }
 }
@@ -35,15 +42,15 @@ main {
         top: -30%;
     }
 
-    80% {
+    70% {
         top: 0%;
     }
 
-    90% {
+    80% {
         top: 5%;
     }
 
-    95% {
+    90% {
         top: -5%;
     }
 

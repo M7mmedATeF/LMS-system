@@ -3,27 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 export const board = [
     {
         id: 1,
-        name: "Mohammed Atef Ewais",
+        name: "yakoub qamar-eldin debiaza",
         points: 250,
     },
     {
         id: 2,
-        name: "Mohammed Atef Ewais",
+        name: "khaled kashmery",
         points: 200,
     },
     {
         id: 3,
-        name: "Asmaa Atef Ewais",
-        points: 100,
+        name: "khider kraweta",
+        points: 190,
     },
     {
         id: 5,
-        name: "Asmaa Atef Ewais",
-        points: 100,
+        name: "ismael ahmed kanabawy",
+        points: 185,
     },
     {
         id: 6,
-        name: "Asmaa Atef Ewais",
+        name: "othman abd-elgalel shesha",
         points: 100,
     },
 ];

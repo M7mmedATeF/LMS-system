@@ -1,0 +1,17 @@
+.courses {
+    .courseSlider {
+        direction: ltr;
+
+        .slide {
+            padding-inline: 5px;
+        }
+    }
+
+    .Foryou {
+        margin-top: 3rem;
+    }
+
+    .grid {
+        margin-top: 3rem;
+    }
+}

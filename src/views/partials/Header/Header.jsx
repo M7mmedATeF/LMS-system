@@ -4,6 +4,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Supported_Langs, changeLang } from "store/Reducers/LangReducer";
+import { toggleTheme } from "store/Reducers/ThemeReducer";
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
@@ -31,7 +32,7 @@ const Header = () => {
                                 <NavLink to={`/`}>home</NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/chapters`}>chapters</NavLink>
+                                <NavLink to={`/Courses`}>Courses</NavLink>
                             </li>
                             <li>
                                 <NavLink to={`/about-us`}>about us</NavLink>
@@ -73,6 +74,7 @@ const Header = () => {
 
 const User = (id) => {
     let lang = useSelector((store) => store.lang);
+    let isDark = useSelector((store) => store.theme);
     let dispatch = useDispatch();
 
     return (
@@ -111,6 +113,14 @@ const User = (id) => {
                         </li>
                         <li>
                             <NavLink to="/grades">Grades</NavLink>
+                        </li>
+                        <li>
+                            <button
+                                onClick={() => {
+                                    dispatch(toggleTheme(!isDark));
+                                }}>
+                                {isDark ? "Light" : "Dark"} mode
+                            </button>
                         </li>
                         <li>
                             <div>

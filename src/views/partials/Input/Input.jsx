@@ -1,12 +1,12 @@
 import React from "react";
 import "./Input.css";
 
-const Input = ({ label, type, idx }) => {
+const Input = ({ label, type, idx, name }) => {
     return (
         <div className="input">
             {type == "text_area" ? (
                 <textarea
-                    name={`name_ele_${idx}`}
+                    name={name}
                     id={`name_ele_${idx}`}
                     tabIndex={idx}
                     placeholder={`name_ele_${idx}`}
@@ -15,7 +15,7 @@ const Input = ({ label, type, idx }) => {
             ) : (
                 <input
                     type={type}
-                    name={`name_ele_${idx}`}
+                    name={name}
                     id={`name_ele_${idx}`}
                     tabIndex={idx}
                     placeholder={`name_ele_${idx}`}

@@ -161,6 +161,9 @@ header nav .user ul li {
             button {
                 text-align: center;
                 text-transform: capitalize;
+                font-size: 0.9rem;
+                color: inherit;
+                transition: 0.3s all ease-in-out;
             }
 
             > *:not(ul) {
@@ -176,6 +179,11 @@ header nav .user ul li {
 
             &:not(:last-child) > *:not(ul) {
                 border-bottom: 0.5px solid #999;
+            }
+
+            ul {
+                bottom: 0;
+                inset-inline-start: -50%;
             }
         }
     }
@@ -209,6 +217,8 @@ header nav .user ul li {
         inset-inline-start: auto;
         transform: translateX(100%);
         transition: 0.3s all ease-in-out;
+        padding-block: 3svh;
+        overflow-y: auto;
 
         &:dir(rtl) {
             transform: translateX(-100%);
@@ -233,11 +243,13 @@ header nav .user ul li {
             li {
                 width: 100%;
 
-                a {
+                a,
+                button {
                     width: 100%;
                     text-align: center;
                     border-radius: 5px;
                     font-size: 1.3rem;
+                    padding-block: 10px;
                 }
             }
         }
