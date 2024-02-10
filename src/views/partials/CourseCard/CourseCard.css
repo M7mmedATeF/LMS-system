@@ -1,21 +1,22 @@
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondary-color);
-    min-height: 5svh;
-    border-radius: var(--br-radius) var(--br-radius) 0 0;
-    text-align: center;
-    padding: 5px 10px;
-    font-size: 0.8rem;
+.CourseCard {
+    img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+    }
 
-    p a {
-        color: var(--theme-color);
-        transition: 0.3s color ease-in-out;
-        font-weight: 600;
+    .name {
+        font-weight: 700;
+        font-size: 1.1em;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin-block: 10px 5px;
+    }
 
-        &:hover {
-            color: var(--txt-L1-color);
-        }
+    .author {
+        font-size: 0.8em;
+        margin-bottom: 5px;
     }
 }
