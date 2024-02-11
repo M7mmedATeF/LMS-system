@@ -1,8 +1,19 @@
 .CourseCard {
+    transition: 0.3s all ease-in-out;
+    background-color: var(--bg-L2-color);
+
+    &:hover {
+        filter: drop-shadow(0 0 20px var(--theme-color));
+    }
+
     img {
         width: 100%;
         aspect-ratio: 3/2;
         object-fit: cover;
+    }
+
+    .info {
+        padding: 0 10px;
     }
 
     .name {
@@ -18,5 +29,136 @@
     .author {
         font-size: 0.8em;
         margin-bottom: 5px;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pricing {
+            position: relative;
+            padding-inline-end: 1.2rem;
+
+            .new {
+                font-weight: 900;
+                font-size: 3rem;
+            }
+
+            .old {
+                position: absolute;
+                top: 10px;
+                inset-inline-end: 0%;
+                color: var(--theme-color);
+                text-decoration: line-through;
+            }
+
+            .currency {
+                position: absolute;
+                bottom: 10px;
+                inset-inline-end: 1%;
+            }
+        }
+
+        .rating {
+            font-weight: 600;
+            .stars {
+                color: var(--theme-color);
+
+                .icon {
+                    color: var(--bg-L2-color);
+                    filter: drop-shadow(0 0 2px var(--theme-color));
+                }
+            }
+        }
+    }
+}
+
+.HzCourseCard {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .name {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        & > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author {
+            font-size: 0.8em;
+            margin-bottom: 5px;
+        }
+
+        .pricing {
+            position: relative;
+            padding-inline-end: 1.2rem;
+
+            .new {
+                font-weight: 900;
+                font-size: 3rem;
+            }
+
+            .old {
+                position: absolute;
+                top: 10px;
+                inset-inline-end: 0%;
+                color: var(--theme-color);
+                text-decoration: line-through;
+            }
+
+            .currency {
+                position: absolute;
+                bottom: 10px;
+                inset-inline-end: 1%;
+            }
+        }
+
+        .rating {
+            display: flex;
+            gap: 10px;
+            font-weight: 600;
+            flex-wrap: wrap;
+
+            .stars {
+                position: relative;
+                top: -1.5px;
+                color: var(--theme-color);
+
+                .icon {
+                    color: var(--bg-L2-color);
+                    filter: drop-shadow(0 0 2px var(--theme-color));
+                }
+            }
+        }
+    }
+}
+
+@media (width < 600px) {
+    .HzCourseCard {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }

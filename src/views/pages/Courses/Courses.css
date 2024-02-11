@@ -1,9 +1,14 @@
 .courses {
-    .courseSlider {
-        direction: ltr;
+    padding-top: 10svh;
 
+    .courseSlider {
         .slide {
             padding-inline: 5px;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: var(--theme-color);
         }
     }
 

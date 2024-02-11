@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const current_theme = () => {
     let theme = localStorage.getItem("theme");
-    console.log(theme);
-    console.log(theme === "true");
     return theme === "true";
 };
 

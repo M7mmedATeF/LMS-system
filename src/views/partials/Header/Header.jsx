@@ -130,7 +130,7 @@ const User = (id) => {
                                 {Supported_Langs.map((lg, idx) => (
                                     <li>
                                         <button
-                                            key={id + idx}
+                                            key={idx}
                                             className={
                                                 lg.code === lang.code
                                                     ? "active"

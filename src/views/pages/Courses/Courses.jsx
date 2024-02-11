@@ -7,16 +7,33 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import CourseCard from "views/partials/CourseCard/CourseCard";
+import { useSelector } from "react-redux";
+import CoursesGrid from "views/partials/CoursesGrid/CoursesGrid";
 
 const Courses = () => {
+    const lang = useSelector((store) => store.lang);
+    const courses = useSelector((store) => store.courses);
+
+    function SampleArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "block", color: "red !important" }}
+                onClick={onClick}
+            />
+        );
+    }
+
     var settings = {
-        infinite: false,
         slidesToShow: 5,
-        slidesToScroll: 2,
+        slidesToScroll: 3,
         initialSlide: 0,
         autoplay: true,
         autoplaySpeed: 2000,
-        dir: "ltr",
+        infinite: false,
+        nextArrow: <SampleArrow />,
+        prevArrow: <SampleArrow />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -34,7 +51,7 @@ const Courses = () => {
                 },
             },
             {
-                breakpoint: 480,
+                breakpoint: 500,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -42,79 +59,6 @@ const Courses = () => {
             },
         ],
     };
-
-    const courses = [
-        {
-            id: 1,
-            name: `The Complete JavaScript Course 2024: From Zero to
-            Expert!The modern JavaScript course for everyone! Master
-            JavaScript with projects, challenges and theory. Many
-            courses in one!`,
-            img: "https://img-c.udemycdn.com/course/240x135/3726582_f4a7.jpg",
-            price: 50,
-            discount: 0,
-            author: "Khaled Kashmery",
-            rate: 4.5,
-        },
-        {
-            id: 2,
-            name: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, voluptatibus.!`,
-            img: "https://img-c.udemycdn.com/course/240x135/851712_fc61_6.jpg",
-            price: 50,
-            discount: 10,
-            author: "Khaled Kashmery",
-            rate: 3,
-        },
-        {
-            id: 3,
-            name: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ipsa tenetur corrupti placeat mollitia atque? Ea incidunt nihil aspernatur! Voluptas?`,
-            img: "https://img-c.udemycdn.com/course/240x135/2337802_1793_3.jpg",
-            price: 50,
-            discount: 10,
-            author: "Khaled Kashmery",
-            rate: 4.8,
-        },
-        {
-            id: 4,
-            name: `The Complete JavaScript Course 2024: From Zero to
-            Expert!`,
-            img: "https://img-c.udemycdn.com/course/240x135/2410958_2ad5_3.jpg",
-            price: 50,
-            discount: 10,
-            author: "Khaled Kashmery",
-            rate: 2,
-        },
-        {
-            id: 5,
-            name: `The Complete JavaScript Course 2024: From Zero to
-            Expert!`,
-            img: "https://img-c.udemycdn.com/course/240x135/3033186_ea5d_3.jpg",
-            price: 50,
-            discount: 10,
-            author: "Khaled Kashmery",
-            rate: 4.6,
-        },
-        {
-            id: 6,
-            name: `The Complete JavaScript Course 2024: From Zero to
-            Expert!`,
-            img: "https://img-c.udemycdn.com/course/240x135/3033186_ea5d_3.jpg",
-            price: 50,
-            discount: 10,
-            author: "Khaled Kashmery",
-            rate: 4.5,
-        },
-        {
-            id: 7,
-            name: `The Complete JavaScript Course 2024: From Zero to
-            Expert!`,
-            img: "https://img-c.udemycdn.com/course/240x135/3033186_ea5d_3.jpg",
-            price: 50,
-            discount: 10,
-            author: "Khaled Kashmery",
-            rate: 4.5,
-        },
-    ];
 
     return (
         <Fragment>
@@ -130,8 +74,12 @@ const Courses = () => {
                     <div className="courseSlider">
                         <Slider {...settings}>
                             {courses.map((course, idx) => (
-                                <div className="slide">
-                                    <CourseCard course={course} index={idx} />
+                                <div className="slide" key={idx}>
+                                    <CourseCard
+                                        course={course}
+                                        index={idx}
+                                        key={idx}
+                                    />
                                 </div>
                             ))}
                         </Slider>
@@ -145,7 +93,7 @@ const Courses = () => {
                     />
 
                     <div className="courseSlider">
-                        <Slider {...settings}>
+                        <Slider {...settings} rtl={lang.dir}>
                             {courses.map((course, idx) => (
                                 <div className="slide">
                                     <CourseCard course={course} index={idx} />
@@ -163,7 +111,9 @@ const Courses = () => {
                         }
                     />
 
-                    <div className="courseSlider"></div>
+                    <div className="all Courses">
+                        <CoursesGrid courses={courses} />
+                    </div>
                 </section>
             </section>
         </Fragment>
