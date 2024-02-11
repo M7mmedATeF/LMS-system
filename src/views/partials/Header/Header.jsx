@@ -8,6 +8,18 @@ import { toggleTheme } from "store/Reducers/ThemeReducer";
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
+    const lang = useSelector((store) => store.lang);
+    const t = useSelector((store) => store.translate);
+
+    const translate = (key) => {
+        try {
+            return t[key][lang.idx];
+        } catch (err) {
+            console.log(err);
+            return key;
+        }
+    };
+
     return (
         <Fragment>
             <header>
@@ -29,16 +41,22 @@ const Header = () => {
                     <div className={`links ${showNav ? "show" : ""}`}>
                         <ul>
                             <li>
-                                <NavLink to={`/`}>home</NavLink>
+                                <NavLink to={`/`}>{translate("home")}</NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/Courses`}>Courses</NavLink>
+                                <NavLink to={`/Courses`}>
+                                    {translate("courses")}
+                                </NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/about-us`}>about us</NavLink>
+                                <NavLink to={`/about-us`}>
+                                    {translate("aboutus")}
+                                </NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/faqs`}>FAQs</NavLink>
+                                <NavLink to={`/faqs`}>
+                                    {translate("faqs")}
+                                </NavLink>
                             </li>
                         </ul>
 
@@ -73,9 +91,19 @@ const Header = () => {
 };
 
 const User = (id) => {
-    let lang = useSelector((store) => store.lang);
     let isDark = useSelector((store) => store.theme);
     let dispatch = useDispatch();
+    let lang = useSelector((store) => store.lang);
+    const t = useSelector((store) => store.translate);
+
+    const translate = (key) => {
+        try {
+            return t[key][lang.idx];
+        } catch (err) {
+            console.log(err);
+            return key;
+        }
+    };
 
     return (
         <div className="user">
@@ -109,22 +137,28 @@ const User = (id) => {
                     </div>
                     <ul>
                         <li>
-                            <NavLink to="/profile">Profile</NavLink>
+                            <NavLink to="/profile">
+                                {translate("profile")}
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/grades">Grades</NavLink>
+                            <NavLink to="/grades">
+                                {translate("grades")}
+                            </NavLink>
                         </li>
                         <li>
                             <button
                                 onClick={() => {
                                     dispatch(toggleTheme(!isDark));
                                 }}>
-                                {isDark ? "Light" : "Dark"} mode
+                                {isDark
+                                    ? translate("lightmode")
+                                    : translate("darkmode")}
                             </button>
                         </li>
                         <li>
                             <div>
-                                <span>Language</span>
+                                <span>{translate("language")}</span>
                             </div>
                             <ul>
                                 {Supported_Langs.map((lg, idx) => (
@@ -164,14 +198,16 @@ const User = (id) => {
                                             ) : (
                                                 ""
                                             )}
-                                            {lg.name}
+                                            {translate(lg.name)}
                                         </button>
                                     </li>
                                 ))}
                             </ul>
                         </li>
                         <li>
-                            <NavLink to="/logout">Logout</NavLink>
+                            <NavLink to="/logout">
+                                {translate("logout")}
+                            </NavLink>
                         </li>
                     </ul>
                 </li>

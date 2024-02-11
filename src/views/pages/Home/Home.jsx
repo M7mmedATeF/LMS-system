@@ -15,30 +15,27 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
     const board = useSelector((store) => store.board);
+    const lang = useSelector((store) => store.lang);
+    const t = useSelector((store) => store.translate);
+
+    const translate = (key) => {
+        try {
+            return t[key][lang.idx];
+        } catch (err) {
+            return key;
+        }
+    };
+
     return (
         <Fragment>
             <section className="home">
                 <section className="header">
                     <div className="start">
-                        <h2>The ultimate LMS</h2>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Impedit, placeat. Provident rerum architecto
-                            omnis vero, exercitationem facilis eius delectus,
-                            nobis natus molestias officiis expedita minima
-                            nesciunt. Quaerat repudiandae earum repellat?
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Dolore architecto, eaque qui, consequuntur
-                            nulla accusantium provident quam quaerat consectetur
-                            itaque aliquam iusto iste asperiores atque. Alias
-                            vel sunt ea incidunt quod tempora ullam quidem aut
-                            asperiores laborum. Laborum pariatur doloribus
-                            soluta totam molestiae, similique quaerat voluptate.
-                        </p>
+                        <h2>{translate("home")}</h2>
+                        <p>{translate("lorem")}</p>
+                        <p>{translate("lorem")}</p>
                         <div className="links">
-                            <Link to="/signup">Join us now</Link>
+                            <Link to="/signup">{translate("joinus")}</Link>
                         </div>
                     </div>
                     <div className="end">
@@ -55,7 +52,7 @@ const Home = () => {
                         </div>
                         <div>
                             <p className="num">22</p>
-                            <p className="type">Video</p>
+                            <p className="type">{translate("video")}</p>
                         </div>
                     </div>
                     <div className="counter">
@@ -66,7 +63,7 @@ const Home = () => {
                         </div>
                         <div>
                             <p className="num">25</p>
-                            <p className="type">paper</p>
+                            <p className="type">{translate("paper")}</p>
                         </div>
                     </div>
                     <div className="counter">
@@ -77,15 +74,15 @@ const Home = () => {
                         </div>
                         <div>
                             <p className="num">10</p>
-                            <p className="type">final exam</p>
+                            <p className="type">{translate("exam")}</p>
                         </div>
                     </div>
                 </section>
 
                 <section className="board">
                     <Headline
-                        headline="Leaderboard"
-                        quote="the harder you do, the better you get"
+                        headline={translate("leaderboard")}
+                        quote={translate("boardQoute")}
                     />
 
                     <table border={0}>
@@ -93,7 +90,9 @@ const Home = () => {
                             {board.map((row) => (
                                 <tr key={row.id}>
                                     <td>{row.name}</td>
-                                    <td>{row.points} pt.</td>
+                                    <td>
+                                        {row.points} {translate("pt")}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -102,30 +101,30 @@ const Home = () => {
 
                 <section className="contact">
                     <Headline
-                        headline="Contact us"
-                        quote="ask for what ever you need"
+                        headline={translate("contactus")}
+                        quote={translate("contactQaute")}
                     />
                     <form>
                         <Input
-                            label={"name"}
+                            label={translate("name")}
                             name={"name"}
                             type={"text"}
                             idx={1}
                         />
                         <Input
-                            label={"email"}
+                            label={translate("email")}
                             name={"email"}
                             type={"email"}
                             idx={2}
                         />
                         <Input
-                            label={"phone"}
+                            label={translate("phone")}
                             name={"phone"}
                             type={"tel"}
                             idx={3}
                         />
                         <Input
-                            label={"message"}
+                            label={translate("message")}
                             name={"message  "}
                             type={"text_area"}
                             idx={4}
@@ -136,7 +135,7 @@ const Home = () => {
                                 <span className="icon">
                                     <FontAwesomeIcon icon={faPaperPlane} />
                                 </span>
-                                Send message
+                                {translate("send")}
                             </button>
                         </div>
                     </form>

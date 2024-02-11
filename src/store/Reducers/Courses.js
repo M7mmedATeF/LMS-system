@@ -12,6 +12,7 @@ const courses = [
         discount: 0,
         author: "Mohammed Atef Ewais ahmed",
         rate: 4.5,
+        users: 1456132,
     },
     {
         id: 2,
@@ -21,6 +22,7 @@ const courses = [
         discount: 10,
         author: "Khaled Kashmery",
         rate: 3,
+        users: 999,
     },
     {
         id: 3,
@@ -30,6 +32,7 @@ const courses = [
         discount: 10,
         author: "Khaled Kashmery",
         rate: 4.8,
+        users: 4562,
     },
     {
         id: 4,
@@ -40,6 +43,7 @@ const courses = [
         discount: 10,
         author: "Khaled Kashmery",
         rate: 2,
+        users: 42,
     },
     {
         id: 5,
@@ -50,6 +54,7 @@ const courses = [
         discount: 10,
         author: "Khaled Kashmery",
         rate: 4.6,
+        users: 613,
     },
     {
         id: 6,
@@ -60,6 +65,7 @@ const courses = [
         discount: 10,
         author: "Khaled Kashmery",
         rate: 4.5,
+        users: 648612,
     },
     {
         id: 7,
@@ -70,6 +76,7 @@ const courses = [
         discount: 10,
         author: "Khaled Kashmery",
         rate: 4.5,
+        users: 7623,
     },
 ];
 

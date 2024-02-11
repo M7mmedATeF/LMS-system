@@ -34,6 +34,14 @@ const stars = (course) => {
     return stars;
 };
 
+const beauty_Users = (users) => {
+    if (users < 1000) return users;
+    else if (Math.trunc(users / 10 ** 6) != 0)
+        return (users / 10 ** 6).toFixed(1) + "M";
+    else if (Math.trunc(users / 10 ** 3) != 0)
+        return Math.trunc(users / 1000) + "K";
+};
+
 const CourseCard = ({ course }) => {
     const discount = course.price - (course.price * course.discount) / 100;
     return (
@@ -54,7 +62,9 @@ const CourseCard = ({ course }) => {
 
                     <div className="footer">
                         <div className="rating">
-                            <span>{course.rate}</span>
+                            <span>
+                                {course.rate} ({beauty_Users(course.users)})
+                            </span>
                             <div className="stars">{stars(course)}</div>
                         </div>
                         <div className="pricing">
@@ -91,7 +101,9 @@ export const RowCourseCard = ({ course }) => {
                             <p className="author">{course.author}</p>
 
                             <div className="rating">
-                                <span>{course.rate}</span>
+                                <span>
+                                    {course.rate} ({beauty_Users(course.users)})
+                                </span>
                                 <div className="stars">{stars(course)}</div>
                             </div>
                         </div>

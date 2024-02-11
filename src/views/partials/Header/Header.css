@@ -156,6 +156,7 @@ header nav .user ul li {
             div {
                 display: block;
                 text-align: center;
+                text-transform: capitalize;
             }
 
             button {
@@ -169,6 +170,7 @@ header nav .user ul li {
             > *:not(ul) {
                 width: 100%;
                 padding: 5px 10px;
+                text-transform: capitalize;
                 transition: 0.4s all ease-in-out;
 
                 &:hover {
